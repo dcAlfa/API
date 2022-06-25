@@ -1,0 +1,18 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="Kutubxona.Kutubxona.urls.delet" />
+          <option value="Ustozlar.Ustozlar.urls.App" />
+          <option value="Ustozlar.Ustozlar.urls.yonalishi" />
+          <option value="todo.todoapp.views.rediract" />
+          <option value="Kutubxona.Kitoblar.forms.Ustoz" />
+          <option value="Kutubxona.Kitoblar.forms.Yonalish" />
+          <option value="Blog.Blog.urls.home" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
