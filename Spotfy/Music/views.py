@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import status
+from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -72,10 +73,18 @@ class AlbomlarAPIView(APIView):
             return Response(ser.data)
         return Response(ser.errors)
 
+
 class AlbomAPIView(APIView):
     def get(self,request, pk):
         albom = get_object_or_404(Albom, id=pk)
         ser = AlbomSerializer(albom)
+        return Response(ser.data)
+
+    @action(diteal=True, methods=["get"])
+    def qoshiqchilar(self, request, pk = None):
+        albom = self.get_object()
+        qoshiqchilar = Qoshiqchi.objects.filter(albom=albom)
+        ser = AlbomSerializer(qoshiqchilar, many=True)
         return Response(ser.data)
     def patch(self,request,pk):
         albom = get_object_or_404(Albom, id=pk)

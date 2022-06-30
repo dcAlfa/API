@@ -12,18 +12,21 @@ class QoshiqchiSerializer(serializers.ModelSerializer):
 
 
 class AlbomSerializer(serializers.ModelSerializer):
-    qoshiqchi = QoshiqchiSerializer()
     class Meta:
         model = Albom
         fields = "__all__"
-
-
+    def validate_nom(self, qiymat, ):
+        if len(qiymat)<4:
+            raise ValidationError("Bunday albom yo'q")
+        return qiymat
 class QoshiqSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Qoshiq
         fields = "__all__"
-    def validate_file(self, qiymat, ):
-        if qiymat.enswith(".mp3")==False:
-            raise ValidationError("Bunday url yo'q")
-        return qiymat
+    def validate_janr(self, qiymat, ):
+        A = ["Mumtoz", "Rep", "Pop", "Jazz"]
+        for i in A:
+            if (qiymat!=i):
+                raise ValidationError("Bunday janr yo'q")
+            return qiymat
